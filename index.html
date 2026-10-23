@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login — SIGA Arquivos</title>
+<meta name="theme-color" content="#f2f7fb">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico?v=20261021">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png?v=20261021">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png?v=20261021">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png?v=20261021">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#2C9BD8;
+  --accent-hover:#1E8ACB;
+  --text:#1f2d3d;
+  --muted:#7c8b9c;
+  --muted-2:#9aa8b6;
+  --input-bg:#ffffff;
+  --input-border:#d7e3ee;
+  --card-shadow:0 10px 30px rgba(40,90,130,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,sans-serif;
+  background:#f2f7fb;
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  -webkit-font-smoothing:antialiased;
+}
+/* fundo: imagem de referência (hexágonos à direita + marca no canto sup. direito) */
+.bg{
+  position:fixed;inset:0;
+  background:#f2f7fb url("assets/bg-login-siga.jpg") right center/auto 100% no-repeat;
+  z-index:0;
+}
+/* coluna do card — esquerda (lado vazio da referência) */
+main{
+  position:relative;z-index:1;
+  width:100%;
+  display:flex;justify-content:flex-start;
+  align-items:center;
+  padding:0 6vw;
+}
+.login-box{
+  width:100%;max-width:400px;
+  margin:auto;
+  display:flex;flex-direction:column;gap:18px;
+  padding:38px 32px 32px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(215,227,238,.9);
+  border-radius:16px;
+  backdrop-filter:blur(6px);
+  box-shadow:var(--card-shadow);
+}
+h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--muted);margin-top:-10px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12.5px;font-weight:500;color:var(--muted)}
+.field input{
+  height:42px;padding:0 14px;font-size:14px;
+  background:var(--input-bg);
+  border:1px solid var(--input-border);
+  border-radius:10px;color:var(--text);
+  outline:none;transition:border-color .15s, box-shadow .15s;
+}
+.field input::placeholder{color:var(--muted-2)}
+.field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(44,155,216,.18)}
+.row{display:flex;align-items:center;justify-content:space-between;font-size:13px}
+.row label{display:flex;align-items:center;gap:7px;color:var(--muted);cursor:pointer}
+.row input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent)}
+.clear-btn{
+  background:none;border:0;color:var(--muted-2);cursor:pointer;
+  font-size:13px;padding:0 2px;line-height:1;
+}
+.clear-btn:hover{color:var(--accent)}
+.login-btn{
+  height:46px;border:0;border-radius:8px;
+  background:var(--accent);color:#fff;
+  font-size:14.5px;font-weight:600;cursor:pointer;
+  font-family:inherit;
+  transition:background .15s, transform .1s;
+  margin-top:6px;
+}
+.login-btn:hover{background:var(--accent-hover)}
+.login-btn:active{transform:translateY(1px)}
+.login-btn:disabled{opacity:.6;cursor:not-allowed}
+.msg{text-align:center;font-size:13px;min-height:18px}
+.msg.err{color:#dc2626}
+.foot{
+  position:fixed;bottom:16px;left:0;right:0;
+  text-align:center;font-size:12px;color:var(--muted-2);
+  z-index:2;
+}
+/* marca HTML — apenas em telas estreitas, onde a imagem é cortada */
+.brand-mobile{
+  display:none;
+  position:fixed;top:22px;left:0;right:0;z-index:2;
+  text-align:center;
+}
+.brand-mobile b{
+  font-size:26px;font-weight:700;letter-spacing:.02em;color:#5b6b7a;
+  text-transform:uppercase;
+}
+.brand-mobile b span{font-weight:500;letter-spacing:.32em;font-size:15px;color:#8593a2;display:block;margin-top:2px}
+.brand-mobile small{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#a7b2bd;margin-top:6px}
+@media (max-width:900px){
+  .bg{background:#f2f7fb url("assets/bg-login-siga.jpg") right top/cover no-repeat}
+  .brand-mobile{display:block}
+  main{padding:0 20px}
+  .login-box{max-width:420px;margin-top:70px}
+  .foot{display:none}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="brand-mobile">
+  <b>SIGA<span>ARQUIVOS</span></b>
+  <small>Gestão &amp; Custódia Pública Digital</small>
+</div>
+
+<main>
+  <form class="login-box" id="ncLogin" autocomplete="on">
+    <h1>Área do cliente</h1>
+    <p class="sub">Acesse o SIGA Arquivos com suas credenciais.</p>
+    <div class="field">
+      <label for="ncUser">E-mail*</label>
+      <input id="ncUser" name="user" type="text" placeholder="seu@email.com" autocomplete="username" autocapitalize="none" autocorrect="off" required>
+    </div>
+    <div class="field">
+      <label for="ncPass">Senha*</label>
+      <input id="ncPass" name="password" type="password" placeholder="••••••••" autocomplete="current-password" required>
+    </div>
+    <div class="row">
+      <label><input type="checkbox" name="rememberme" id="rmCheck" checked> Lembre de mim</label>
+      <button type="button" class="clear-btn" id="rmClear" title="Limpar campos" hidden>✕</button>
+    </div>
+    <button type="submit" class="login-btn" id="ncSubmit">Entrar</button>
+    <div class="msg" id="ncMsg" role="status"></div>
+  </form>
+</main>
+
+<div class="foot">© <span id="year"></span> SIGA Arquivos — Gestão &amp; Custódia Pública Digital</div>
+
+<script>
+(function(){
+  var form=document.getElementById('ncLogin'),
+      msg=document.getElementById('ncMsg'),
+      btn=document.getElementById('ncSubmit'),
+      rmCheck=document.getElementById('rmCheck'),
+      rmClear=document.getElementById('rmClear');
+  var KEY='siga_rm_user';
+
+  function rmSave(){ try{ if(rmCheck.checked && form.user.value){ localStorage.setItem(KEY,form.user.value);} }catch(e){} }
+  function rmErase(){ try{ localStorage.removeItem(KEY); }catch(e){} }
+  function rmLoad(){
+    var v='';
+    try{ v=localStorage.getItem(KEY)||''; }catch(e){}
+    if(v){ form.user.value=v; rmCheck.checked=true; rmClear.hidden=false; }
+  }
+  rmClear.addEventListener('click',function(){
+    rmErase();
+    form.user.value='';
+    form.password.value='';
+    rmClear.hidden=true;
+  });
+  rmCheck.addEventListener('change',function(){
+    if(rmCheck.checked && form.user.value){ rmClear.hidden=false; }
+  });
+  rmLoad();
+
+  function getToken(url){
+    // token CSRF vem da pagina nativa do Nextcloud
+    return fetch(url||'/index.php/login',{credentials:'same-origin'})
+      .then(function(r){return r.text();})
+      .then(function(h){var m=h.match(/data-requesttoken="([^"]+)"/);return m?m[1]:'';})
+      .catch(function(){return '';});
+  }
+
+  function buildFD(tok){
+    var fd=new FormData();
+    fd.append('user',form.user.value);
+    fd.append('password',form.password.value);
+    if(rmCheck.checked) fd.append('rememberme','1');
+    if(tok) fd.append('requesttoken',tok);
+    return fd;
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    msg.textContent='';
+    btn.disabled=true;
+    getToken().then(function(tok){
+      return fetch('/login',{method:'POST',credentials:'same-origin',body:buildFD(tok)});
+    }).then(function(res){
+      var u=res.url||'';
+      if(u.indexOf('login/confirm')!==-1){
+        return getToken(u).then(function(tok2){
+          return fetch(u,{method:'POST',credentials:'same-origin',body:buildFD(tok2)});
+        });
+      }
+      return res;
+    }).then(function(res){
+      var u = res.url || '';
+      // fetch segue os redirects: no fim deve estar na pagina logada
+      // (/apps/files...). Se voltar para login.html / direct=1 = falhou.
+      if(u.indexOf('login.html') !== -1 || u.indexOf('direct=1') !== -1){
+        msg.textContent = 'Usuário ou senha inválidos.';
+        btn.disabled = false;
+        return null;
+      }
+      rmSave();
+      window.location.href = u || '/index.php';
+      return null;
+    }).catch(function(){
+      msg.textContent='Falha de conexão com o servidor.';
+      btn.disabled=false;
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
