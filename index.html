@@ -36,7 +36,7 @@ body{
 /* fundo: imagem de referência (hexágonos à direita + marca no canto sup. direito) */
 .bg{
   position:fixed;inset:0;
-  background:#f2f7fb url("assets/bg-login-siga.jpg") right center/auto 100% no-repeat;
+  background:#f2f7fb url("assets/bg-login-siga-degrade.jpg") right center/auto 100% no-repeat;
   z-index:0;
 }
 /* coluna do card — esquerda (lado vazio da referência) */
@@ -110,7 +110,7 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
 .brand-mobile b span{font-weight:500;letter-spacing:.32em;font-size:15px;color:#8593a2;display:block;margin-top:2px}
 .brand-mobile small{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#a7b2bd;margin-top:6px}
 @media (max-width:900px){
-  .bg{background:#f2f7fb url("assets/bg-login-siga.jpg") right top/cover no-repeat}
+  .bg{background:#f2f7fb url("assets/bg-login-siga-degrade.jpg") right top/cover no-repeat}
   .brand-mobile{display:block}
   main{padding:0 20px}
   .login-box{max-width:420px;margin-top:70px}
@@ -130,8 +130,8 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
     <h1>Área do cliente</h1>
     <p class="sub">Acesse o SIGA Arquivos com suas credenciais.</p>
     <div class="field">
-      <label for="ncUser">E-mail*</label>
-      <input id="ncUser" name="user" type="text" placeholder="seu@email.com" autocomplete="username" autocapitalize="none" autocorrect="off" required>
+      <label for="ncUser">Usuário*</label>
+      <input id="ncUser" name="user" type="text" placeholder="seu usuário" autocomplete="username" autocapitalize="none" autocorrect="off" required>
     </div>
     <div class="field">
       <label for="ncPass">Senha*</label>
