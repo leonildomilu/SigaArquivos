@@ -33,10 +33,10 @@ body{
   display:flex;
   -webkit-font-smoothing:antialiased;
 }
-/* fundo: imagem de referência (hexágonos à direita + marca no canto sup. direito) */
+/* fundo: referência v2 (marca no topo central + hexágonos em canto sup. direito e inf. esquerdo) */
 .bg{
   position:fixed;inset:0;
-  background:#f2f7fb url("assets/bg-login-siga-degrade.jpg") right center/auto 100% no-repeat;
+  background:#f2f7fb url("assets/bg-login-siga-v2.jpg") right center/auto 100% no-repeat;
   z-index:0;
 }
 /* coluna do card — esquerda (lado vazio da referência) */
@@ -110,7 +110,7 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
 .brand-mobile b span{font-weight:500;letter-spacing:.32em;font-size:15px;color:#8593a2;display:block;margin-top:2px}
 .brand-mobile small{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#a7b2bd;margin-top:6px}
 @media (max-width:900px){
-  .bg{background:#f2f7fb url("assets/bg-login-siga-degrade.jpg") right top/cover no-repeat}
+  .bg{background:#f2f7fb url("assets/bg-login-siga-v2.jpg") right top/cover no-repeat}
   .brand-mobile{display:block}
   main{padding:0 20px}
   .login-box{max-width:420px;margin-top:70px}
