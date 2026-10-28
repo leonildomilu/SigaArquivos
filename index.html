@@ -33,10 +33,10 @@ body{
   display:flex;
   -webkit-font-smoothing:antialiased;
 }
-/* fundo: referência v2 (marca no topo central + hexágonos em canto sup. direito e inf. esquerdo) */
+/* fundo: referência v2 — cover preenche a tela inteira (sem faixa lateral) */
 .bg{
   position:fixed;inset:0;
-  background:#f2f7fb url("assets/bg-login-siga-v2.jpg") right center/auto 100% no-repeat;
+  background:#f2f7fb url("assets/bg-login-siga-v2.jpg") center/cover no-repeat;
   z-index:0;
 }
 /* coluna do card — esquerda (lado vazio da referência) */
@@ -45,11 +45,11 @@ main{
   width:100%;
   display:flex;justify-content:flex-start;
   align-items:center;
-  padding:0 6vw;
+  padding:0;
 }
 .login-box{
   width:100%;max-width:400px;
-  margin:auto;
+  margin:0;
   display:flex;flex-direction:column;gap:18px;
   padding:38px 32px 32px;
   background:rgba(255,255,255,.92);
@@ -112,8 +112,8 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
 @media (max-width:900px){
   .bg{background:#f2f7fb url("assets/bg-login-siga-v2.jpg") right top/cover no-repeat}
   .brand-mobile{display:block}
-  main{padding:0 20px}
-  .login-box{max-width:420px;margin-top:70px}
+  main{padding:0}
+  .login-box{max-width:100%;margin-top:70px}
   .foot{display:none}
 }
 </style>
