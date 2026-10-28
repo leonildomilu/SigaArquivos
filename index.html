@@ -39,50 +39,50 @@ body{
   background:#f2f7fb url("assets/bg-login-siga-v2.jpg") center/cover no-repeat;
   z-index:0;
 }
-/* coluna do card — esquerda (lado vazio da referência) */
+/* coluna do card — centralizado */
 main{
   position:relative;z-index:1;
   width:100%;
-  display:flex;justify-content:flex-start;
+  display:flex;justify-content:center;
   align-items:center;
-  padding:0;
+  padding:0 6vw;
 }
 .login-box{
-  width:100%;max-width:400px;
+  width:100%;max-width:360px;
   margin:0;
-  display:flex;flex-direction:column;gap:18px;
-  padding:38px 32px 32px;
+  display:flex;flex-direction:column;gap:16px;
+  padding:34px 29px 29px;
   background:rgba(255,255,255,.92);
   border:1px solid rgba(215,227,238,.9);
-  border-radius:16px;
+  border-radius:14px;
   backdrop-filter:blur(6px);
   box-shadow:var(--card-shadow);
 }
-h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
-.sub{font-size:13.5px;color:var(--muted);margin-top:-10px}
-.field{display:flex;flex-direction:column;gap:6px}
-.field label{font-size:12.5px;font-weight:500;color:var(--muted)}
+h1{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.sub{font-size:12px;color:var(--muted);margin-top:-9px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:11.5px;font-weight:500;color:var(--muted)}
 .field input{
-  height:42px;padding:0 14px;font-size:14px;
+  height:38px;padding:0 12px;font-size:12.5px;
   background:var(--input-bg);
   border:1px solid var(--input-border);
-  border-radius:10px;color:var(--text);
+  border-radius:9px;color:var(--text);
   outline:none;transition:border-color .15s, box-shadow .15s;
 }
 .field input::placeholder{color:var(--muted-2)}
 .field input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(44,155,216,.18)}
-.row{display:flex;align-items:center;justify-content:space-between;font-size:13px}
+.row{display:flex;align-items:center;justify-content:space-between;font-size:12px}
 .row label{display:flex;align-items:center;gap:7px;color:var(--muted);cursor:pointer}
-.row input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent)}
+.row input[type=checkbox]{width:13px;height:13px;accent-color:var(--accent)}
 .clear-btn{
   background:none;border:0;color:var(--muted-2);cursor:pointer;
-  font-size:13px;padding:0 2px;line-height:1;
+  font-size:12px;padding:0 2px;line-height:1;
 }
 .clear-btn:hover{color:var(--accent)}
 .login-btn{
-  height:46px;border:0;border-radius:8px;
+  height:41px;border:0;border-radius:7px;
   background:var(--accent);color:#fff;
-  font-size:14.5px;font-weight:600;cursor:pointer;
+  font-size:13px;font-weight:600;cursor:pointer;
   font-family:inherit;
   transition:background .15s, transform .1s;
   margin-top:6px;
@@ -90,7 +90,7 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
 .login-btn:hover{background:var(--accent-hover)}
 .login-btn:active{transform:translateY(1px)}
 .login-btn:disabled{opacity:.6;cursor:not-allowed}
-.msg{text-align:center;font-size:13px;min-height:18px}
+.msg{text-align:center;font-size:12px;min-height:16px}
 .msg.err{color:#dc2626}
 .foot{
   position:fixed;bottom:16px;left:0;right:0;
@@ -112,8 +112,8 @@ h1{font-size:20px;font-weight:600;letter-spacing:-.01em}
 @media (max-width:900px){
   .bg{background:#f2f7fb url("assets/bg-login-siga-v2.jpg") right top/cover no-repeat}
   .brand-mobile{display:block}
-  main{padding:0}
-  .login-box{max-width:100%;margin-top:70px}
+  main{padding:0 20px}
+  .login-box{max-width:360px;margin-top:70px}
   .foot{display:none}
 }
 </style>
