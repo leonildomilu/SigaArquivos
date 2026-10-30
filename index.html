@@ -33,19 +33,35 @@ body{
   display:flex;
   -webkit-font-smoothing:antialiased;
 }
-/* fundo: referência v2 — cover preenche a tela inteira (sem faixa lateral) */
+/* fundo: v3 — sem logo queimado (a marca agora é HTML, nunca corta) */
 .bg{
   position:fixed;inset:0;
-  background:#f2f7fb url("assets/bg-login-siga-v2.jpg") center/cover no-repeat;
+  background:#f2f7fb url("assets/bg-login-siga-v3.jpg") center/cover no-repeat;
   z-index:0;
 }
-/* coluna do card — centralizado */
+/* coluna do card — centralizado, abaixo da marca */
 main{
   position:relative;z-index:1;
   width:100%;
   display:flex;justify-content:center;
   align-items:center;
-  padding:0 6vw;
+  padding:150px 6vw 70px;
+}
+/* marca HTML — fixa no topo, sempre centralizada e legível */
+.brand{
+  position:fixed;top:24px;left:0;right:0;z-index:2;
+  display:flex;flex-direction:column;align-items:center;
+  pointer-events:none;
+}
+.brand img{height:52px;display:block}
+.brand .nome{
+  font-size:22px;font-weight:700;letter-spacing:.02em;color:#1f2d3d;
+  text-transform:uppercase;margin-top:4px;
+}
+.brand .nome span{font-weight:300}
+.brand small{
+  display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:#8593a2;margin-top:5px;
 }
 .login-box{
   width:100%;max-width:360px;
@@ -97,31 +113,22 @@ h1{font-size:18px;font-weight:600;letter-spacing:-.01em}
   text-align:center;font-size:12px;color:var(--muted-2);
   z-index:2;
 }
-/* marca HTML — apenas em telas estreitas, onde a imagem é cortada */
-.brand-mobile{
-  display:none;
-  position:fixed;top:22px;left:0;right:0;z-index:2;
-  text-align:center;
-}
-.brand-mobile b{
-  font-size:26px;font-weight:700;letter-spacing:.02em;color:#5b6b7a;
-  text-transform:uppercase;
-}
-.brand-mobile b span{font-weight:500;letter-spacing:.32em;font-size:15px;color:#8593a2;display:block;margin-top:2px}
-.brand-mobile small{display:block;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#a7b2bd;margin-top:6px}
 @media (max-width:900px){
-  .bg{background:#f2f7fb url("assets/bg-login-siga-v2.jpg") right top/cover no-repeat}
-  .brand-mobile{display:block}
-  main{padding:0 20px}
-  .login-box{max-width:360px;margin-top:70px}
+  .bg{background:#f2f7fb url("assets/bg-login-siga-v3.jpg") right top/cover no-repeat}
+  .brand{top:16px}
+  .brand img{height:40px}
+  .brand .nome{font-size:18px}
+  main{padding:150px 20px 60px}
+  .login-box{max-width:360px;margin-top:30px}
   .foot{display:none}
 }
 </style>
 </head>
 <body>
 <div class="bg"></div>
-<div class="brand-mobile">
-  <b>SIGA<span>ARQUIVOS</span></b>
+<div class="brand">
+  <img src="assets/logo-emblema.png?v=20261030" alt="Emblema SIGA Arquivos">
+  <div class="nome">SIGA<span>ARQUIVOS</span></div>
   <small>Gestão &amp; Custódia Pública Digital</small>
 </div>
 
